@@ -65,6 +65,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AOP\AspectF.cs" />
+    <Compile Include="AOP\ICache.cs" />
+    <Compile Include="AOP\ILogger.cs" />
     <Compile Include="Chart图形\Assistant.cs" />
     <Compile Include="Chart图形\OWCChart11.cs" />
     <Compile Include="CSV文件转换\CsvHelper.cs" />
