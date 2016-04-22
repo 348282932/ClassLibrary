@@ -206,7 +206,7 @@ namespace MyClassLibrary
         {
             
             string kz_name = Path.GetExtension(path);
-            if (kz_name == ".jpg" || kz_name == ".bmp" || kz_name == ".jpeg")
+            if (kz_name == ".jpg" || kz_name == ".bmp" || kz_name == ".jpeg" || kz_name == ".png")
             {
                 DateTime time = DateTime.Now;
                 string filename = "" + time.Year.ToString() + time.Month.ToString() + time.Day.ToString() + time.Hour.ToString() + time.Minute.ToString() + time.Second.ToString() + time.Millisecond.ToString();

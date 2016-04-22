@@ -631,18 +631,6 @@ public static class AspectExtensions
         });
     }
 
-    public static AspectF Transaction(this AspectF aspect)
-    {
-        return aspect.Combine(work =>
-        {
-            using (var scope = new TransactionScope(TransactionScopeOption.Required))
-            {
-                work();
-                scope.CompAspectFe();
-            }
-        });
-    }
-
     private static void GetListFromSource<TReturnType>(AspectF aspect, ICache cacheResolver,
                                                        string key)
     {
