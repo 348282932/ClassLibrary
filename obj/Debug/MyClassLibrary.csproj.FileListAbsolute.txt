@@ -2,3 +2,4 @@ C:\Users\Administrator\Desktop\Max.Long\MyClassLibrary\bin\Debug\MyClassLibrary.
 C:\Users\Administrator\Desktop\Max.Long\MyClassLibrary\bin\Debug\MyClassLibrary.pdb
 C:\Users\Administrator\Desktop\Max.Long\MyClassLibrary\obj\Debug\MyClassLibrary.dll
 C:\Users\Administrator\Desktop\Max.Long\MyClassLibrary\obj\Debug\MyClassLibrary.pdb
+C:\Users\Administrator\Desktop\Max.Long\MyClassLibrary\obj\Debug\MyClassLibrary.csprojResolveAssemblyReference.cache

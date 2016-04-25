@@ -560,7 +560,7 @@ namespace MyClassLibrary
                 Bitmap bap = new Bitmap(newW, newH);
                 Graphics g = Graphics.FromImage(bap);
                 g.InterpolationMode = System.Drawing.Drawing2D.InterpolationMode.HighQualityBicubic;
-                g.DrawImage(bap, new Rectangle(0, 0, newW, newH), new Rectangle(0, 0, bap.Width, bap.Height), GraphicsUnit.Pixel);
+                g.DrawImage(bmp, new Rectangle(0, 0, newW, newH), new Rectangle(0, 0, bap.Width, bap.Height), GraphicsUnit.Pixel);
                 g.Dispose();
                 return bap;
             }
@@ -646,19 +646,23 @@ namespace MyClassLibrary
 
         #region 压缩图片
         /// <summary>
-        /// 压缩到指定尺寸
+        /// 等比例压缩到指定宽度
         /// </summary>
         /// <param name="oldfile">原文件</param>
-        /// <param name="newfile">新文件</param>
-        public bool Compress(string oldfile, string newfile)
+        /// <param name="width">压缩后的图片宽度</param>
+        public bool Compress(String oldfile, Int32 width)
         {
             try
             {
                 PixelFormatIndexedFormat(oldfile);
                 System.Drawing.Image img = System.Drawing.Image.FromFile(oldfile);
                 System.Drawing.Imaging.ImageFormat thisFormat = img.RawFormat;
-                Size newSize = new Size(100, 125);
+
+                Decimal dec = Convert.ToDecimal(img.Width) / width;
+
+                Size newSize = new Size(Convert.ToInt32(img.Width / dec), Convert.ToInt32(img.Height / dec));
                 Bitmap outBmp = new Bitmap(newSize.Width, newSize.Height);
+
                 Graphics g = Graphics.FromImage(outBmp);
                 g.CompositingQuality = CompositingQuality.HighQuality;
                 g.SmoothingMode = SmoothingMode.HighQuality;
@@ -679,8 +683,15 @@ namespace MyClassLibrary
                         break;
                     }
                 img.Dispose();
-                if (jpegICI != null) outBmp.Save(newfile, System.Drawing.Imaging.ImageFormat.Jpeg);
+                string newpath = Path.GetDirectoryName(oldfile) + DateTime.Now.ToString("yyyyMMddHHmmssfff") + Path.GetExtension(oldfile);
+                outBmp.Save(newpath, jpegICI, encoderParams);
                 outBmp.Dispose();
+
+                File.Copy(newpath, oldfile, true);
+                if (File.Exists(newpath))
+                {
+                    File.Delete(newpath);
+                }
                 return true;
             }
             catch
