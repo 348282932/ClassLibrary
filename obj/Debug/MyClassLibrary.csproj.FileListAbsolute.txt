@@ -5,6 +5,5 @@ C:\Users\Administrator\Desktop\Max.Long\MyClassLibrary\obj\Debug\MyClassLibrary.
 C:\Users\Administrator\Desktop\Max.Long\MyClassLibrary\obj\Debug\MyClassLibrary.csprojResolveAssemblyReference.cache
 E:\longzhijie\Git\ClassLibrary\bin\Debug\MyClassLibrary.dll
 E:\longzhijie\Git\ClassLibrary\bin\Debug\MyClassLibrary.pdb
-E:\longzhijie\Git\ClassLibrary\obj\Debug\MyClassLibrary.csprojResolveAssemblyReference.cache
 E:\longzhijie\Git\ClassLibrary\obj\Debug\MyClassLibrary.dll
 E:\longzhijie\Git\ClassLibrary\obj\Debug\MyClassLibrary.pdb
