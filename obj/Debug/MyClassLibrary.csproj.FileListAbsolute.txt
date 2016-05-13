@@ -7,3 +7,4 @@ E:\longzhijie\Git\ClassLibrary\bin\Debug\MyClassLibrary.dll
 E:\longzhijie\Git\ClassLibrary\bin\Debug\MyClassLibrary.pdb
 E:\longzhijie\Git\ClassLibrary\obj\Debug\MyClassLibrary.dll
 E:\longzhijie\Git\ClassLibrary\obj\Debug\MyClassLibrary.pdb
+E:\longzhijie\Git\ClassLibrary\obj\Debug\MyClassLibrary.csprojResolveAssemblyReference.cache

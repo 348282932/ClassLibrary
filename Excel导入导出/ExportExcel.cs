@@ -1,12 +1,14 @@
 ﻿using System;
 using System.Collections;
+using System.Collections.Generic;
 using System.Data;
 using System.Text;
 using System.Web;
+using System.Web.UI;
 
 namespace MyClassLibrary
 {
-    public class ExportExcel
+    public class ExportExcel : Page
     {
         /// <summary>
         /// 将 DataTable 转换为 ArrayList
@@ -44,7 +46,7 @@ namespace MyClassLibrary
         /// </summary>
         /// <param name="columns"> 列名 </param>
         /// <param name="data"> 表数据 </param>
-        public void ExportToExcel(ArrayList columns, ArrayList data)
+        public void ExportToExcel<T>(List<T> data, ArrayList columns)
         {
 
             HttpContext.Current.Response.Clear();
@@ -59,7 +61,7 @@ namespace MyClassLibrary
 
             HttpContext.Current.Response.ContentType = "application/ms-excel";//设置输出文件类型为excel文件。
 
-            // EnableViewState = false;
+            EnableViewState = false;
 
             HttpContext.Current.Response.Write(ExportTable(data, columns));
 
@@ -73,11 +75,9 @@ namespace MyClassLibrary
         /// <param name="columns"> 列名 </param>
         /// <param name="data"> 表数据 </param>
         /// <returns> Excel 表 </returns>
-        public static string ExportTable(ArrayList data, ArrayList columns)
+        public static string ExportTable<T>(List<T> data, ArrayList columns)
         {
             StringBuilder sb = new StringBuilder();
-
-            int count = 0;
 
             sb.AppendLine("<meta http-equiv=\"Content-Type\" content=\"text/html; charset=gb2312\">");
 
@@ -95,7 +95,7 @@ namespace MyClassLibrary
 
             // 写出数据
 
-            foreach (Hashtable row in data)
+            foreach (T row in data)
             {
                 sb.Append("<tr>");
 
@@ -103,14 +103,12 @@ namespace MyClassLibrary
                 {
                     if (column["field"] == null) continue;
 
-                    Object value = row[column["field"]];
+                    Object value = row.GetType().GetField(column["field"].ToString()).GetValue(row);
 
                     sb.AppendLine("<td>" + value + "</td>");
                 }
 
                 sb.AppendLine("</tr>");
-
-                count++;
             }
 
             sb.AppendLine("</table>");

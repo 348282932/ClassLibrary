@@ -77,7 +77,9 @@
     <Compile Include="DEncrypt\MySecurity.cs" />
     <Compile Include="DEncrypt\RSACryption.cs" />
     <Compile Include="DEncrypt\Tools.cs" />
-    <Compile Include="Excel导入导出\ExportExcel.cs" />
+    <Compile Include="Excel导入导出\ExportExcel.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
     <Compile Include="FTP操作\FTPClient.cs" />
     <Compile Include="FTP操作\FTPHelper.cs" />
     <Compile Include="FTP操作\FTPOperater.cs" />
